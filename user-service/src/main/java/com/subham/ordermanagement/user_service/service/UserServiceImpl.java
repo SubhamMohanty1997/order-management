@@ -2,6 +2,7 @@ package com.subham.ordermanagement.user_service.service;
 
 import com.subham.ordermanagement.user_service.dto.UserDto;
 import com.subham.ordermanagement.user_service.entity.User;
+import com.subham.ordermanagement.user_service.exception.ResourceNotFoundException;
 import com.subham.ordermanagement.user_service.repository.UserRepository;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,13 +26,16 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public UserDto getUserById(String id) {
-        User user = userRepository.findById(new ObjectId(id)).get();
+        User user = userRepository.findById(new ObjectId(id))
+                .orElseThrow(()->new ResourceNotFoundException("User not found with ID: "+id));
         return new UserDto(user.getId().toHexString(),
                 user.getName(), user.getEmail());
     }
 
     @Override
     public void deleteUserById(String id) {
+        User user = userRepository.findById(new ObjectId(id))
+                .orElseThrow(()->new ResourceNotFoundException("User not found with ID: "+id));
         userRepository.deleteById(new ObjectId(id));
     }
 }
