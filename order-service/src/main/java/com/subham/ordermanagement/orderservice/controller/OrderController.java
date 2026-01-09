@@ -1,8 +1,8 @@
-package com.subham.ordermanagement.order_service.controller;
+package com.subham.ordermanagement.orderservice.controller;
 
-import com.subham.ordermanagement.order_service.dto.OrderResponseDto;
-import com.subham.ordermanagement.order_service.entity.Order;
-import com.subham.ordermanagement.order_service.service.OrderService;
+import com.subham.ordermanagement.orderservice.dto.OrderResponseDto;
+import com.subham.ordermanagement.orderservice.entity.Order;
+import com.subham.ordermanagement.orderservice.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

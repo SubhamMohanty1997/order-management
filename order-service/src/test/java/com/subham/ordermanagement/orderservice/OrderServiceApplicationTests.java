@@ -1,4 +1,4 @@
-package com.subham.ordermanagement.order_service;
+package com.subham.ordermanagement.orderservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

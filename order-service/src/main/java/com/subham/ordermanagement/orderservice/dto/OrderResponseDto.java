@@ -1,6 +1,6 @@
-package com.subham.ordermanagement.order_service.dto;
+package com.subham.ordermanagement.orderservice.dto;
 
-import com.subham.ordermanagement.order_service.util.OrderStatus;
+import com.subham.ordermanagement.orderservice.util.OrderStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

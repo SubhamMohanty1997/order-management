@@ -1,4 +1,4 @@
-package com.subham.ordermanagement.order_service.dto;
+package com.subham.ordermanagement.orderservice.dto;
 
 import lombok.Getter;
 

@@ -1,4 +1,4 @@
-package com.subham.ordermanagement.order_service.config;
+package com.subham.ordermanagement.orderservice.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

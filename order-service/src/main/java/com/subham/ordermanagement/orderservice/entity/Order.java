@@ -1,6 +1,6 @@
-package com.subham.ordermanagement.order_service.entity;
+package com.subham.ordermanagement.orderservice.entity;
 
-import com.subham.ordermanagement.order_service.util.OrderStatus;
+import com.subham.ordermanagement.orderservice.util.OrderStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

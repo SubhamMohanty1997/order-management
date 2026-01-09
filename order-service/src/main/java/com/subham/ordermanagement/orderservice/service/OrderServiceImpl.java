@@ -1,11 +1,11 @@
-package com.subham.ordermanagement.order_service.service;
+package com.subham.ordermanagement.orderservice.service;
 
-import com.subham.ordermanagement.order_service.dto.OrderResponseDto;
-import com.subham.ordermanagement.order_service.dto.UserDto;
-import com.subham.ordermanagement.order_service.entity.Order;
-import com.subham.ordermanagement.order_service.exception.OrderNotFoundException;
-import com.subham.ordermanagement.order_service.repository.OrderRepository;
-import com.subham.ordermanagement.order_service.util.UserServiceClient;
+import com.subham.ordermanagement.orderservice.dto.OrderResponseDto;
+import com.subham.ordermanagement.orderservice.dto.UserDto;
+import com.subham.ordermanagement.orderservice.entity.Order;
+import com.subham.ordermanagement.orderservice.exception.OrderNotFoundException;
+import com.subham.ordermanagement.orderservice.repository.OrderRepository;
+import com.subham.ordermanagement.orderservice.util.UserServiceClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
