@@ -5,7 +5,7 @@ spring:
   application:
     name: order-service
   datasource:
-    url: jdbc:postgresql://localhost:5432/orderdb
+    url: jdbc:postgresql://postgres:5432/orderdb
     username: postgres
     password: postgres
   jpa:
@@ -20,7 +20,7 @@ spring:
 # <-- app should be at root level
 app:
   user-service:
-    url: http://localhost:8081/api/v1/users/getUser
+    url: http://user-service:8081/api/v1/users/getUser
 
 resilience4j:
   circuitbreaker:

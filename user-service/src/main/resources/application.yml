@@ -4,6 +4,8 @@ server:
 spring:
   application:
     name: user-service
-  data:
-    mongodb:
-      uri: mongodb://localhost:27017/userdb
+
+  mongodb:
+    host: mongo       # Docker service name
+    port: 27017
+    database: userdb
