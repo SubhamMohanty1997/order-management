@@ -1,5 +1,6 @@
 package com.subham.ordermanagement.order_service.controller;
 
+import com.subham.ordermanagement.order_service.dto.OrderResponseDto;
 import com.subham.ordermanagement.order_service.entity.Order;
 import com.subham.ordermanagement.order_service.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,8 +42,8 @@ public class OrderController {
     }
 
     @GetMapping("/getOrdersByUserId/{id}")
-    public ResponseEntity<List<Order>> getOrdersByUserId(@PathVariable("id") String userId){
-        List<Order> orders = orderService.getOrdersByUserId(userId);
+    public ResponseEntity<List<OrderResponseDto>> getOrdersByUserId(@PathVariable("id") String userId){
+        List<OrderResponseDto> orders = orderService.getOrdersByUserId(userId);
         return new ResponseEntity<>(orders,HttpStatus.OK);
     }
 

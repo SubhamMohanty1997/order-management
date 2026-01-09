@@ -1,8 +1,11 @@
 package com.subham.ordermanagement.order_service.service;
 
+import com.subham.ordermanagement.order_service.dto.OrderResponseDto;
+import com.subham.ordermanagement.order_service.dto.UserDto;
 import com.subham.ordermanagement.order_service.entity.Order;
 import com.subham.ordermanagement.order_service.exception.OrderNotFoundException;
 import com.subham.ordermanagement.order_service.repository.OrderRepository;
+import com.subham.ordermanagement.order_service.util.UserServiceClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +15,9 @@ import java.util.List;
 public class OrderServiceImpl implements OrderService{
     @Autowired
     private OrderRepository orderRepository;
+
+    @Autowired
+    private UserServiceClient userServiceClient;
 
     @Override
     public Order createOrder(Order order) {
@@ -37,7 +43,19 @@ public class OrderServiceImpl implements OrderService{
     }
 
     @Override
-    public List<Order> getOrdersByUserId(String userId) {
-        return orderRepository.findByUserId(userId);
+    public List<OrderResponseDto> getOrdersByUserId(String userId) {
+        UserDto userDto = userServiceClient.getUserById(userId);
+        System.out.println(userDto.getId()+", "+userDto.getName()+", "+userDto.getEmail());
+
+        List<Order> orders = orderRepository.findByUserId(userId);
+
+        List<OrderResponseDto> orderResponse = orders.stream()
+                .map(order-> new OrderResponseDto(order.getId(),order.getProductName(),
+                        order.getQuantity(),order.getPrice(),order.getStatus(),
+                        userDto.getId(),userDto.getName(),userDto.getEmail()
+                )).toList();
+
+        return orderResponse;
+
     }
 }
