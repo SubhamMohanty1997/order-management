@@ -10,4 +10,6 @@ public interface OrderService {
     void deleteOrderById(Long id);
     List<Order> getAllOrders();
 
+    List<Order> getOrdersByUserId(String userId);
+
 }

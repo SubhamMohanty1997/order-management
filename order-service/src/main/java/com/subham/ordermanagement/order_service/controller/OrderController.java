@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/orders")
 public class OrderController {
 
     @Autowired
@@ -38,6 +38,12 @@ public class OrderController {
     public ResponseEntity<List<Order>> getAllOrders(){
         List<Order> orders = orderService.getAllOrders();
         return new ResponseEntity<>(orders, HttpStatus.OK);
+    }
+
+    @GetMapping("/getOrdersByUserId/{id}")
+    public ResponseEntity<List<Order>> getOrdersByUserId(@PathVariable("id") String userId){
+        List<Order> orders = orderService.getOrdersByUserId(userId);
+        return new ResponseEntity<>(orders,HttpStatus.OK);
     }
 
 
