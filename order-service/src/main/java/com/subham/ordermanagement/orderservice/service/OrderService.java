@@ -1,7 +1,7 @@
-package com.subham.ordermanagement.order_service.service;
+package com.subham.ordermanagement.orderservice.service;
 
-import com.subham.ordermanagement.order_service.dto.OrderResponseDto;
-import com.subham.ordermanagement.order_service.entity.Order;
+import com.subham.ordermanagement.orderservice.dto.OrderResponseDto;
+import com.subham.ordermanagement.orderservice.entity.Order;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
-package com.subham.ordermanagement.order_service.exception;
+package com.subham.ordermanagement.orderservice.exception;
 
-import com.subham.ordermanagement.order_service.dto.ApiErrorResponse;
+import com.subham.ordermanagement.orderservice.dto.ApiErrorResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

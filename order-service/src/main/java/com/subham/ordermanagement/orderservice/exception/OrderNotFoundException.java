@@ -1,4 +1,4 @@
-package com.subham.ordermanagement.order_service.exception;
+package com.subham.ordermanagement.orderservice.exception;
 
 public class OrderNotFoundException extends RuntimeException{
 

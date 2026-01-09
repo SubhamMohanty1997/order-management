@@ -1,4 +1,4 @@
-package com.subham.ordermanagement.order_service;
+package com.subham.ordermanagement.orderservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
