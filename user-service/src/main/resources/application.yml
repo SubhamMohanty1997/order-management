@@ -8,4 +8,4 @@ spring:
   mongodb:
     host: mongo       # Docker service name
     port: 27017
-    database: userdb
+    database: test
