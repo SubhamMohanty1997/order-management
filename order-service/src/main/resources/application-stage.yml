@@ -1,0 +1,29 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    url: jdbc:postgresql://stage-db.internal:5432/orderdb
+    username: stage_user
+    password: stage_secret
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+
+app:
+  user-service:
+    url: http://user-service.stage.internal/api/v1/users/getUser
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      userService:
+        slidingWindowSize: 20
+        failureRateThreshold: 40
+        waitDurationInOpenState: 15s
+
+logging:
+  level:
+    root: WARN

@@ -1,0 +1,29 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    url: jdbc:postgresql://prod-db.internal:5432/orderdb
+    username: prod_user
+    password: prod_secret
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+
+app:
+  user-service:
+    url: http://user-service.prod.svc.cluster.local/api/v1/users/getUser
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      userService:
+        slidingWindowSize: 50
+        failureRateThreshold: 20
+        waitDurationInOpenState: 30s
+
+logging:
+  level:
+    root: ERROR
