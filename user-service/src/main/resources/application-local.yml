@@ -2,9 +2,6 @@ server:
   port: 8081
 
 spring:
-  application:
-    name: user-service
-
   mongodb:
     host: localhost       # Docker service name
     port: 27017

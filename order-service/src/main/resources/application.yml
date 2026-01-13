@@ -33,13 +33,9 @@
 #        waitDurationInOpenState: 10s
 #        permittedNumberOfCallsInHalfOpenState: 3
 
-
 spring:
   application:
     name: order-service
-
-  profiles:
-    active: local   # 👈 default profile (VERY IMPORTANT)
 
 server:
   port: 8082

@@ -6,6 +6,7 @@ spring:
     url: jdbc:postgresql://prod-db.internal:5432/orderdb
     username: prod_user
     password: prod_secret
+    driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:

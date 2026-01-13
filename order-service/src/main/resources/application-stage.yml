@@ -6,6 +6,7 @@ spring:
     url: jdbc:postgresql://stage-db.internal:5432/orderdb
     username: stage_user
     password: stage_secret
+    driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
