@@ -1,0 +1,8 @@
+server:
+  port: 8081
+
+spring:
+  mongodb:
+    host: mongo
+    port: 27017
+    database: test
