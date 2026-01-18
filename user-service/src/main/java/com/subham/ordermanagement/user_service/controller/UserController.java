@@ -3,11 +3,12 @@ package com.subham.ordermanagement.user_service.controller;
 import com.subham.ordermanagement.user_service.dto.UserDto;
 import com.subham.ordermanagement.user_service.entity.User;
 import com.subham.ordermanagement.user_service.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+@Slf4j
 @RestController
 @RequestMapping("/api/v1/users")
 public class UserController {
@@ -18,12 +19,14 @@ public class UserController {
     @PostMapping("/createUser")
     public ResponseEntity<UserDto> createUser(@RequestBody User user){
         UserDto savedUser = userService.createUser(user);
+        log.info("User created with userId={}",savedUser.getId());
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
 
     @GetMapping("/getUser/{id}")
     public ResponseEntity<UserDto> getUserById(@PathVariable("id") String id){
         UserDto user = userService.getUserById(id);
+        log.info("Fetching user by id={}", id);
         return new ResponseEntity<>(user,HttpStatus.OK);
     }
 

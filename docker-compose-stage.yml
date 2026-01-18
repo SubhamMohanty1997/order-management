@@ -1,0 +1,23 @@
+services:
+  postgres-dev:
+    image: postgres:16
+    container_name: postgres-stage
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data_stage:/var/lib/postgresql/data
+
+  order-service:
+    build: ./order-service
+    container_name: order-service-stage
+    environment:
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE}
+    depends_on:
+      - postgres-stage
+
+volumes:
+  postgres_data_stage:

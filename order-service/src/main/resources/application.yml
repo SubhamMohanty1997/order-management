@@ -53,3 +53,9 @@ resilience4j:
         failureRateThreshold: 50
         waitDurationInOpenState: 10s
 
+logging:
+  file:
+    path: /logs
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+

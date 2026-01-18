@@ -8,4 +8,11 @@ spring:
   mongodb:
     host: localhost       # Docker service name
     port: 27017
-    database: test
+    database: userdb
+
+
+logging:
+  file:
+    path: /logs
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"

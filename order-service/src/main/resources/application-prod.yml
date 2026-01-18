@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://prod-db.internal:5432/orderdb
-    username: prod_user
-    password: prod_secret
+    url: jdbc:postgresql://postgres-prod:5432/orderdb_prod
+    username: postgres_prod
+    password: postgres_prod
     driver-class-name: org.postgresql.Driver
 
   jpa:
@@ -28,3 +28,7 @@ resilience4j:
 logging:
   level:
     root: ERROR
+    com.subham.ordermanagement: ERROR
+
+  file:
+    name: /logs/order-service-prod.log

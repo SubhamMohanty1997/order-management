@@ -3,6 +3,7 @@ package com.subham.ordermanagement.orderservice.controller;
 import com.subham.ordermanagement.orderservice.dto.OrderResponseDto;
 import com.subham.ordermanagement.orderservice.entity.Order;
 import com.subham.ordermanagement.orderservice.service.OrderService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/api/v1/orders")
 public class OrderController {
@@ -20,12 +22,14 @@ public class OrderController {
     @PostMapping("/createOrder")
     public ResponseEntity<Order> createOrder(@RequestBody Order order){
         Order savedOrder = orderService.createOrder(order);
+        log.info("Order created successfully with orderId={}", savedOrder.getId());
         return new ResponseEntity<>(savedOrder, HttpStatus.CREATED);
     }
 
     @GetMapping("/getOrder/{id}")
     public ResponseEntity<Order> getOrderById(@PathVariable("id") Long id){
         Order order = orderService.getOrderById(id);
+        log.debug("Order fetched successfully, orderId={}", id);
         return new ResponseEntity<>(order, HttpStatus.OK);
     }
 
@@ -38,12 +42,14 @@ public class OrderController {
     @GetMapping("/getAllOrders")
     public ResponseEntity<List<Order>> getAllOrders(){
         List<Order> orders = orderService.getAllOrders();
+        log.debug("Total orders returned={}", orders.size());
         return new ResponseEntity<>(orders, HttpStatus.OK);
     }
 
     @GetMapping("/getOrdersByUserId/{id}")
     public ResponseEntity<List<OrderResponseDto>> getOrdersByUserId(@PathVariable("id") String userId){
         List<OrderResponseDto> orders = orderService.getOrdersByUserId(userId);
+        log.info("Returning {} orders for userId={}", orders.size(), userId);
         return new ResponseEntity<>(orders,HttpStatus.OK);
     }
 

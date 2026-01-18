@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://stage-db.internal:5432/orderdb
-    username: stage_user
-    password: stage_secret
+    url: jdbc:postgresql://postgres-stage:5432/orderdb_stage
+    username: postgres_stage
+    password: postgres_stage
     driver-class-name: org.postgresql.Driver
 
   jpa:
@@ -28,3 +28,7 @@ resilience4j:
 logging:
   level:
     root: WARN
+    com.subham.ordermanagement: WARN
+
+  file:
+    name: /logs/order-service-stage.log

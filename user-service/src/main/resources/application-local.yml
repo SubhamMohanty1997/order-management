@@ -5,4 +5,12 @@ spring:
   mongodb:
     host: localhost       # Docker service name
     port: 27017
-    database: test
+    database: userdb_local
+
+logging:
+  level:
+    root: INFO
+    com.subham.ordermanagement: DEBUG
+
+  file:
+    enabled: false

@@ -3,6 +3,14 @@ server:
 
 spring:
   mongodb:
-    host: mongo
+    host: mongo-prod
     port: 27017
-    database: test
+    database: userdb_prod
+
+logging:
+  level:
+    root: ERROR
+    com.subham.ordermanagement: ERROR
+
+  file:
+    name: /logs/user-service-prod.log

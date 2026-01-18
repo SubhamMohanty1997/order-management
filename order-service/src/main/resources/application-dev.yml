@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://postgres:5432/orderdb
+    url: jdbc:postgresql://postgres-dev:5432/orderdb
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
@@ -12,10 +12,11 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
 
 app:
   user-service:
-    url: http://user-service:8081/api/v1/users/getUser
+    url: http://user-service-dev:8081/api/v1/users/getUser
 
 resilience4j:
   circuitbreaker:
@@ -27,4 +28,8 @@ resilience4j:
 
 logging:
   level:
-    root: INFO
+    root: DEBUG
+    com.subham.ordermanagement: DEBUG
+
+  file:
+    name: /logs/order-service-dev.log

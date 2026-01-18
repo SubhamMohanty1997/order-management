@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/orderdb
+    url: jdbc:postgresql://localhost:5432/orderdb_local
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
@@ -29,7 +29,11 @@ resilience4j:
         failureRateThreshold: 30
         waitDurationInOpenState: 5s
 
+
 logging:
   level:
     root: INFO
-    org.hibernate.SQL: DEBUG
+    com.subham.ordermanagement: DEBUG
+
+  file:
+    enabled: false

@@ -3,6 +3,15 @@ server:
 
 spring:
   mongodb:
-    host: mongo
+    host: mongo-dev
     port: 27017
-    database: test
+    database: userdb_dev
+
+
+logging:
+  level:
+    root: DEBUG
+    com.subham.ordermanagement: DEBUG
+
+  file:
+    name: /logs/user-service-dev.log

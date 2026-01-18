@@ -1,0 +1,43 @@
+services:
+  mongo:
+    image: mongo:6
+    ports:
+      - "27017:27017"
+    container_name: mongo-dev
+    volumes:
+      - mongo_data_dev:/data/db
+  postgres:
+    image: postgres:16
+    container_name: postgres-dev
+    environment:
+      POSTGRES_DB: orderdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data_dev:/var/lib/postgresql/data
+
+  order-service:
+    build: ./order-service
+    ports:
+      - "8082:8082"
+    container_name: order-service-dev
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+    depends_on:
+      - postgres
+
+  user-service:
+    build: ./user-service
+    ports:
+      - "8081:8081"
+    container_name: user-service-dev
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+    depends_on:
+      - mongo
+
+volumes:
+  mongo_data_dev:
+  postgres_data_dev:
