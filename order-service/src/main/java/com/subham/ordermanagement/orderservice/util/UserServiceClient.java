@@ -26,7 +26,6 @@ public class UserServiceClient {
         System.out.println(userServiceUrl+"/"+userId);
         return restTemplate.getForObject(userServiceUrl+"/"+userId,UserDto.class);
     }
-
     public UserDto fallbackGetUser(String userId, Throwable ex) {
         return new UserDto(
                 userId,

@@ -3,19 +3,24 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://postgres-stage:5432/orderdb_stage
-    username: postgres_stage
-    password: postgres_stage
+    url: jdbc:postgresql://postgres-stage:5432/orderdb
+    username: postgres
+    password: postgres
     driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
       ddl-auto: validate
-    show-sql: false
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
 
 app:
   user-service:
-    url: http://user-service.stage.internal/api/v1/users/getUser
+    url: http://user-service-stage:8081/api/v1/users/getUser
 
 resilience4j:
   circuitbreaker:

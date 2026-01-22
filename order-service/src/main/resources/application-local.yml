@@ -37,3 +37,17 @@ logging:
 
   file:
     enabled: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,env,loggers,beans
+  server:
+    port: 9092
+
+springdoc:
+  swagger-ui:
+    enabled: true
+  api-docs:
+    enabled: true
